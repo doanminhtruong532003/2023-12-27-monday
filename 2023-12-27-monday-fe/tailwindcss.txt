@@ -1,0 +1,16 @@
+<div className="bg-gray-200 flex items-center justify-center h-screen">
+      {/* Ô vuông lớn chia thành 4 phần bằng nhau */}
+      <div className="bg-white w-screen h-screen flex flex-wrap">
+        {/* Ô chữ nhật 1 */}
+        <div className="bg-blue-500 h-1/2 w-1/2"></div>
+
+        {/* Ô chữ nhật 2 */}
+        <div className="bg-green-500 h-1/2 w-1/2"></div>
+
+        {/* Ô chữ nhật 3 */}
+        <div className="bg-yellow-500 h-1/2 w-1/2"></div>
+
+        {/* Ô chữ nhật 4 */}
+        <div className="bg-red-500 h-1/2 w-1/2"></div>
+      </div>
+    </div>
