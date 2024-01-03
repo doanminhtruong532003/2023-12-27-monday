@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 import { FcGoogle } from "react-icons/fc";
 
@@ -37,10 +38,13 @@ const RegisterPage: React.FC = () => {
             />
 
             <div className="flex items-center justify-between">
-              <button className="relative w-full bg-blue-800 border text-white font-bold py-2 px-4 rounded flex items-center justify-center group overflow-hidden">
+              <NavLink
+                to="/create-your-account"
+                className="relative w-full bg-blue-800 border text-white font-bold py-2 px-4 rounded flex items-center justify-center group overflow-hidden"
+              >
                 <div className="z-10 flex items-center">Continue</div>
                 <span className="absolute inset-0 bg-blue-500  opacity-40 group-hover:opacity-0 transition-opacity z-0"></span>
-              </button>
+              </NavLink>
             </div>
           </form>
 
