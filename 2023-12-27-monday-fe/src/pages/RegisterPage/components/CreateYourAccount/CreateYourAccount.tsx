@@ -13,35 +13,43 @@ const CreateYourAccount: React.FC = () => {
             </h1>
           </div>
 
-          <form action="" className="w-full mx-auto  space-y-4">
-            <span>Full name</span>
+          <form action="" className="space-y-4 w-full max-w-md mx-auto">
+            <label htmlFor="full-name" className="block text-gray-700">
+              Full name
+            </label>
             <input
-              type="password"
-              className="w-full rounded-lg border border-gray-300 p-4 pe-12 text-sm shadow-sm hover:border-gray-200"
+              id="full-name"
+              type="text"
+              className="w-full rounded-lg border border-gray-300 p-4 text-sm shadow-sm hover:border-gray-200 focus:ring-2 focus:ring-blue-500 focus:outline-none"
               placeholder="Enter your full name"
             />
-            <span>Password</span>
+
+            <label htmlFor="password" className="block text-gray-700">
+              Password
+            </label>
             <input
-              type="email"
-              className="w-full rounded-lg border border-gray-300 p-4 pe-12 text-sm shadow-sm hover:border-gray-200"
+              id="password"
+              type="password"
+              className="w-full rounded-lg border border-gray-300 p-4 text-sm shadow-sm hover:border-gray-200 focus:ring-2 focus:ring-blue-500 focus:outline-none"
               placeholder="Enter at least 8 characters"
             />
-            <span>Account name</span>
+
+            <label htmlFor="account-name" className="block text-gray-700">
+              Account name
+            </label>
             <input
-              type="email"
-              className="w-full rounded-lg border border-gray-300 p-4 pe-12 text-sm shadow-sm hover:border-gray-200"
+              id="account-name"
+              type="text"
+              className="w-full rounded-lg border border-gray-300 p-4 text-sm shadow-sm hover:border-gray-200 focus:ring-2 focus:ring-blue-500 focus:outline-none"
               placeholder="For example, company's or department's name"
             />
 
-            <div className="flex items-center justify-between">
-              <NavLink
-                to="/create-industry-role"
-                className="relative w-full bg-blue-800 border text-white font-bold py-2 px-4 rounded flex items-center justify-center group overflow-hidden"
-              >
-                <div className="z-10 flex items-center">Continue</div>
-                <span className="absolute inset-0 bg-blue-500  opacity-40 group-hover:opacity-0 transition-opacity z-0"></span>
-              </NavLink>
-            </div>
+            <NavLink
+              to="/create-industry-role"
+              className="block bg-blue-800 text-white text-center font-bold py-2 rounded hover:bg-blue-700 transition-colors w-full"
+            >
+              Continue
+            </NavLink>
           </form>
         </div>
       </div>
