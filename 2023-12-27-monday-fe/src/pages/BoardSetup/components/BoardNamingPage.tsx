@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const ProjectSetupName: React.FC = () => {
+const BoardNamingPage: React.FC = () => {
   const [inputValue, setInputValue] = useState("");
   const [displayValue, setDisplayValue] = useState("");
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -341,4 +341,4 @@ const ProjectSetupName: React.FC = () => {
   );
 };
 
-export default React.memo(ProjectSetupName);
+export default React.memo(BoardNamingPage);

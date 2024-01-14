@@ -1,6 +1,9 @@
 // src/redux/reducers/index.ts
 import { combineReducers } from "redux";
+import formReducer from "./formReducer";
 
-const rootReducer = combineReducers({});
+const rootReducer = combineReducers({
+  form: formReducer,
+});
 
 export default rootReducer;

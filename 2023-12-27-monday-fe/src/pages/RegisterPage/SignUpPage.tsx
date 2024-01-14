@@ -1,9 +1,27 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
 
 import { FcGoogle } from "react-icons/fc";
+import { submitForm } from "~/redux/constant/action";
 
-const SignUpForm = React.memo(() => {
+interface FormInputs {
+  email: string;
+}
+
+const SignUpPage: React.FC = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormInputs>();
+  const dispatch = useDispatch();
+
+  const onSubmit = (data: FormInputs) => {
+    dispatch(submitForm(data));
+  };
+
+
   return (
     <section className="relative flex flex-wrap lg:h-screen lg:items-center">
       <div className="flex-1 px-4 py-12 sm:px-6 sm:py-16 w-full lg:w-4/6 lg:px-8 lg:py-24">
@@ -28,20 +46,28 @@ const SignUpForm = React.memo(() => {
             <div className="flex-1 h-0.5 bg-gray-300"></div>
           </div>
 
-          <form className="space-y-4">
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             <input
-              type="email"
+              defaultValue="email"
+              {...register("email", {
+                required: "Required",
+                pattern: {
+                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                  message: "Please enter a valid email address",
+                },
+              })}
               className="w-full rounded-lg border border-gray-300 p-4 text-sm shadow-sm hover:border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="Enter email"
             />
+            {errors.email && <span>Please enter a valid email address</span>}
 
-            <NavLink
-              to="/create-your-account"
+            <input
+              type="submit"
               className="relative w-full bg-blue-800 text-white py-2 px-4 rounded flex items-center justify-center group overflow-hidden font-bold"
             >
               <div className="z-10 flex items-center">Continue</div>
               <span className="absolute inset-0 bg-blue-500  opacity-40 group-hover:opacity-0 transition-opacity z-0"></span>
-            </NavLink>
+            </input>
           </form>
 
           <div className="mt-6">
@@ -78,10 +104,6 @@ const SignUpForm = React.memo(() => {
       </div>
     </section>
   );
-});
-
-const SignUpPage: React.FC = () => {
-  return <SignUpForm />;
 };
 
 export default React.memo(SignUpPage);
